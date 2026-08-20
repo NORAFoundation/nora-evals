@@ -1,21 +1,16 @@
-# Current State
+# Current State — nora-evals
 
-## Implemented
+**Status:** IMPLEMENTED (Minimum Vertical Slice Verified)  
+**Version:** 0.0.1  
 
-- Repository scaffold.
+## Implemented Components
 
-## Verified
+- `src/nora_evals/schema.py`: Dataclasses for `FixtureManifest`, `TestCase`, `AssertionSpec`, `EvalResult`, and `ResultBundle`.
+- `src/nora_evals/scorers.py`: Assertions for `provenance`, `contradiction`, `authorization`, and `unsupported_claims`.
+- `src/nora_evals/runner.py`: `EvalRunner` harness for executing benchmark fixtures and compiling machine-readable reports.
+- `src/nora_evals/cli.py`: Command-line tool `nora-evals run --fixture <path> [--out <path>]`.
 
-- Scaffold validation only.
+## Verification Evidence
 
-## Experimental
-
-- None yet.
-
-## Planned
-
-- Target minimum vertical slice.
-- Migration of approved source modules.
-- Public benchmark/evaluation coverage.
-
-This file must be updated from test/release evidence, not aspiration.
+- End-to-end synthetic benchmark executed via `tests/fixtures/synthetic_sample_eval.json`.
+- `make test` / `pytest`: **3 passed in 0.02s**.

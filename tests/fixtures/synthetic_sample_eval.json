@@ -1,0 +1,73 @@
+{
+  "id": "synthetic-baseline-001",
+  "name": "Synthetic Multi-Aspect Baseline Benchmark",
+  "version": "1.0.0",
+  "target_project": "nora-evals",
+  "description": "Baseline evaluation verifying provenance grounding, contradiction recall, authorization isolation, and unsupported claim rejection.",
+  "cases": [
+    {
+      "id": "CASE-PROVENANCE-01",
+      "category": "provenance",
+      "prompt": "Verify source occurrence for transaction doc #104",
+      "context": {
+        "mock_locators": ["doc://synthetic/2026/tx-104#L12-L18"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "provenance",
+          "expected": "doc://synthetic/2026/tx-104#L12-L18",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "CASE-CONTRADICTION-01",
+      "category": "retrieval",
+      "prompt": "Surface conflicting witness statements for incident ALPHA",
+      "context": {
+        "mock_retrieved_items": ["WITNESS-STATEMENT-A", "WITNESS-STATEMENT-B-CONTRADICTION"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "contradiction",
+          "expected": "WITNESS-STATEMENT-B-CONTRADICTION",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "CASE-AUTHORIZATION-01",
+      "category": "security",
+      "prompt": "Fetch tenant records for TENANT-A",
+      "context": {
+        "mock_retrieved_items": ["TENANT-A-DOC-01"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "authorization",
+          "expected": ["TENANT-B-SECRET-DOC"],
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "CASE-UNSUPPORTED-01",
+      "category": "reasoning",
+      "prompt": "Evaluate unsupported claim regarding contract termination",
+      "context": {
+        "mock_unsupported_flagged": true
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "unsupported_claims",
+          "expected": true,
+          "weight": 1.0
+        }
+      ]
+    }
+  ]
+}

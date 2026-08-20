@@ -2,6 +2,9 @@
 requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/nora_evals"]
+
 [project]
 name = "nora_evals"
 version = "0.0.1"
@@ -10,6 +13,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "Apache-2.0" }
 dependencies = []
+
+[project.scripts]
+nora-evals = "nora_evals.cli:main"
 
 [project.optional-dependencies]
 dev = [
