@@ -1,2 +1,23 @@
-version: '1.0'
-entries: []
+version: 1.0.0
+entries:
+  - id: PROV-EVALS-001
+    source:
+      repository: NORAFoundation/Appeals-Agent
+      commit: e150a953
+      paths:
+        - eval/wargame_spec.md
+    origin_status: nora-authored
+    original_license: Apache-2.0
+    target:
+      repository: NORAFoundation/nora-evals
+      paths:
+        - tests/fixtures/synthetic_legal_eval.json
+    treatment: REFACTOR_EXTRACT
+    changes:
+      - Generalized child welfare domain assumptions to synthetic legal authority assertions
+      - Replaced domain facts with synthetic invented citation cases
+    review:
+      secret_scan: pass
+      privacy_scan: pass
+      license_review: pass
+      reviewer: migration-agent

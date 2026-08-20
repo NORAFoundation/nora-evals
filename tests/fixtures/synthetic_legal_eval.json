@@ -1,0 +1,42 @@
+{
+  "id": "synthetic-legal-eval-001",
+  "name": "Generalizing Legal Authority & Citation Reliability Suite",
+  "version": "1.0.0",
+  "target_project": "nora-legal-research",
+  "description": "Generalised synthetic legal evaluation suite derived from Appeals-Agent scenario-based evaluation principles without real child/family matter facts.",
+  "cases": [
+    {
+      "id": "LEGAL-CIT-01",
+      "category": "legal-citation",
+      "prompt": "Validate controlling precedent citation for 544 U.S. 269 (2005)",
+      "context": {
+        "mock_locators": ["reporter://us/544/269#p275"],
+        "mock_unsupported_flagged": false
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "provenance",
+          "expected": "reporter://us/544/269#p275",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "LEGAL-OVERRULED-01",
+      "category": "treatment-warning",
+      "prompt": "Check for overruled treatment on synthetic precedent 100 Minn. 400",
+      "context": {
+        "mock_retrieved_items": ["SYNTHETIC-PRECEDENT-100-MINN-400", "WARNING-OVERRULED-BY-LEGISLATION"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "contradiction",
+          "expected": "WARNING-OVERRULED-BY-LEGISLATION",
+          "weight": 1.0
+        }
+      ]
+    }
+  ]
+}
