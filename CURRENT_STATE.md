@@ -13,4 +13,4 @@
 ## Verification Evidence
 
 - End-to-end synthetic benchmark executed via `tests/fixtures/synthetic_sample_eval.json`.
-- `make test` / `pytest`: **3 passed in 0.02s**.
+- `make test` / `pytest`: **5 passed in 0.02s**.
