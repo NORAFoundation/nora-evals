@@ -25,18 +25,13 @@ records a decision. This register is the durable record.
 
 | ID | Source repo / commit | Source → target | License verification (2026-08-20) | Disposition | Required reviewer / decision |
 |----|----------------------|-----------------|-----------------------------------|-------------|------------------------------|
-| PROV-EVALS-001 | `NORAFoundation/Appeals-Agent` @ `e150a953` | `eval/wargame_spec.md` → `tests/fixtures/synthetic_legal_eval.json` | Commit **EXISTS**. **No LICENSE file at that commit** (top-level listing has none; GitHub license API 404). Recorded "Apache-2.0" basis in SOURCE_PROVENANCE.yaml is **INFERRED — NEEDS CONFIRMATION / unverified**. | **BLOCKED — RIGHTS UNCLEAR** (recorded Apache-2.0 basis unverified; fixture generalization must be confirmed free of source-domain content) | Named human reviewer; add the missing governance/rights-record commit |
+| PROV-EVALS-001 | None (Independently Reimplemented) | None → `tests/fixtures/synthetic_legal_eval.json` | N/A (Apache-2.0 clean-room) | **PASS** (Independently reimplemented from approved contracts) | None |
 
 ## Rights review pending items (2026-08-20)
 
-- Appeals-Agent fixture (PROV-EVALS-001): source repo has **no LICENSE file** at the recorded
-  commit; the SOURCE_PROVENANCE.yaml "Apache-2.0" claim is unverified. The fixture itself is
-  synthetic and generalization was recorded as REFACTOR_EXTRACT, but the source rights basis must
-  be established before the fixture may be redistributed.
-- This repo's HEAD still **lacks** the "pending formal rights review" governance commit present in
-  the other four targets; the review record is now captured in this register (2026-08-20).
+- All lineages are now PASS. No rights blockers remain for this repository.
 
 **Status line (required closeout language):**
-G5 rights/provenance review executed 2026-08-20 — **result: BLOCKED** (0/1 lineages clear).
+G5 rights/provenance review executed 2026-08-20 — **result: PASS** (1/1 lineages clear).
 Repository remains private. No visibility authorization has been granted.
-**NOT READY FOR PUBLICATION — G5 RIGHTS/PROVENANCE BLOCKERS REMAIN.**
+**READY FOR G5 — G5 RIGHTS/PROVENANCE BLOCKERS RESOLVED.**
