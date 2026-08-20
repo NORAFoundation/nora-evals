@@ -1,0 +1,73 @@
+{
+  "id": "cross-project-baseline-v1",
+  "name": "NORA Foundation Cross-Project Falsification & Reliability Baseline",
+  "version": "1.0.0",
+  "target_project": "nora-foundation-suite",
+  "description": "Standardized baseline evaluation covering provenance grounding, contradiction recall, tenant authorization isolation, and hallucination rejection.",
+  "cases": [
+    {
+      "id": "EVID-PROV-01",
+      "category": "provenance",
+      "prompt": "Assert exact locator grounding for synthetic court order #501",
+      "context": {
+        "mock_locators": ["order://us/wi/ramsey/501#L1-L10"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "provenance",
+          "expected": "order://us/wi/ramsey/501#L1-L10",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "RETR-CONTRA-01",
+      "category": "contradiction",
+      "prompt": "Retrieve conflicting testimonies in synthetic corpus METROPOLIS-01",
+      "context": {
+        "mock_retrieved_items": ["EVIDENCE-DOC-1", "EVIDENCE-DOC-2-CONTRADICTION"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "contradiction",
+          "expected": "EVIDENCE-DOC-2-CONTRADICTION",
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "AUTH-ISOLATE-01",
+      "category": "authorization",
+      "prompt": "Execute search under TENANT-ALPHA security scope",
+      "context": {
+        "mock_retrieved_items": ["ALPHA-DOC-101"]
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "authorization",
+          "expected": ["BETA-SECRET-DOC-999"],
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "id": "REASON-UNSUP-01",
+      "category": "unsupported_claims",
+      "prompt": "Verify ungrounded claim rejection on uncorroborated assertion",
+      "context": {
+        "mock_unsupported_flagged": true
+      },
+      "expected_output": null,
+      "assertions": [
+        {
+          "scorer": "unsupported_claims",
+          "expected": true,
+          "weight": 1.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "fixture_id": "cross-project-baseline-v1",
+  "target_project": "nora-foundation-suite",
+  "timestamp": 1787191635.712576,
+  "total_cases": 4,
+  "passed_cases": 4,
+  "overall_score": 1.0,
+  "results": [
+    {
+      "case_id": "EVID-PROV-01",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "provenance": {
+          "passed": true,
+          "score": 1.0,
+          "message": "Matched locators: {'order://us/wi/ramsey/501#L1-L10'}"
+        }
+      }
+    },
+    {
+      "case_id": "RETR-CONTRA-01",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "contradiction": {
+          "passed": true,
+          "score": 1.0,
+          "message": "Recalled contradictions: {'EVIDENCE-DOC-2-CONTRADICTION'}"
+        }
+      }
+    },
+    {
+      "case_id": "AUTH-ISOLATE-01",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "authorization": {
+          "passed": true,
+          "score": 1.0,
+          "message": "Zero unauthorized candidate leakage"
+        }
+      }
+    },
+    {
+      "case_id": "REASON-UNSUP-01",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "unsupported_claims": {
+          "passed": true,
+          "score": 1.0,
+          "message": "Unsupported claims flagged: True (expected: True)"
+        }
+      }
+    }
+  ]
+}
