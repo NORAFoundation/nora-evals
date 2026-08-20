@@ -28,9 +28,12 @@ synthetic benchmark -> scorers -> machine-readable report covering provenance, c
 ## Quick start
 
 ```bash
+python -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
 make doctor
 make validate
 make test
+python examples/demo.py
 ```
 
 ## Source provenance
