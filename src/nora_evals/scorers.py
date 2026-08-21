@@ -50,12 +50,23 @@ def score_unsupported_claims(actual: Dict[str, Any], expected: Any) -> Tuple[boo
     passed = unsupported_flagged == expected_flagged
     score = 1.0 if passed else 0.0
     return passed, score, f"Unsupported claims flagged: {unsupported_flagged} (expected: {expected_flagged})"
+def score_conformance_verdict(actual: Dict[str, Any], expected: Any) -> Tuple[bool, float, str]:
+    """
+    Score attestation falsification walk / conformance verdict.
+    """
+    actual_verdict = actual.get("verdict") if isinstance(actual, dict) else str(actual)
+    expected_verdict = str(expected)
+    passed = actual_verdict == expected_verdict
+    score = 1.0 if passed else 0.0
+    return passed, score, f"Conformance verdict: {actual_verdict} (expected: {expected_verdict})"
+
 
 SCORERS = {
     "provenance": score_provenance,
     "contradiction": score_contradiction_recall,
     "authorization": score_authorization_isolation,
     "unsupported_claims": score_unsupported_claims,
+    "conformance_verdict": score_conformance_verdict,
 }
 
 def evaluate_assertion(scorer_name: str, actual: Dict[str, Any], expected: Any) -> Tuple[bool, float, str]:
